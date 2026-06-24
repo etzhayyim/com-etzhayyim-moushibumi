@@ -1,0 +1,152 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://etzhayyim.com/ns/actor-manifest"
+  ],
+  "@type": "ActorManifest",
+  "id": "did:web:moushibumi.etzhayyim.com",
+  "name": "moushibumi",
+  "displayName": "申文 — Citizen Democratic-Participation Concierge",
+  "displayNameJa": "申文",
+  "displayNameEn": "Moushibumi",
+  "description": "kotoba-native citizen democratic-participation concierge — the citizen's VOICE INTO the state, sibling to toritsugi (government procedures) and counterpart to danjo (which watches the state's output). 申文 = a Heian formal submission to authority. Three member-initiated, consent-bound channels: (1) 選挙情報 INFO-ONLY (when/where to vote, 期日前/不在者投票 mechanics, neutral pointers to official 選挙公報 — NEVER campaigning/endorsement/GOTV, 公職選挙法 + political-neutrality G3); (2) 請願/陳情 (assist drafting a 請願書 [請願法] / 陳情 to a 議会, member submits); (3) パブリックコメント (行政手続法 §39 意見公募手続, assist drafting + submitting opinion). Default = 案内 + 起草補助 + 本人提出; 代行 (本人同意ベース) is the gated R3 exception. Driven by a CODED participationTarget registry (organ / channel / 根拠法令 / 様式 / 期限 / 紹介議員-flag). Consent + own-voice-only (G4), 公職選挙法/political-neutral (G3), UPL-bounded (G5), PII + political-opinion encrypted (G6, APPI special-care), Murakumo-only (G7), non-fabrication (G8), non-partisan + non-commercial (G9), lawful-channel-only (G10), Transparent Religious Force (G11), data-minimization/no-opinion-profiling (G12), verified-target-only (G14), member-self-submission default (G15). JP-first (R0); architecture jurisdiction-generic. 7 cells / 6 Lexicons / 15 gates / 13 non-goals.",
+  "descriptionJa": "kotoba-native の市民 民主参加コンシェルジュ — 国家への『市民の声』を運ぶ。toritsugi (行政手続) の参加版兄弟であり、danjo (国家の出力を監視) のカウンターパート。申文 = 上位権威への正式な書面奏上。3つの member-initiated・同意必須チャネル:(1) 選挙情報 INFO-ONLY (投票所/期日前/不在者投票の案内 + 公式選挙公報へのポインタ — 選挙運動/推薦/GOTV は一切行わない、公職選挙法 + 政治的中立 G3);(2) 請願/陳情 (請願書[請願法]/陳情の起草補助、本人提出);(3) パブリックコメント (行政手続法 §39 意見公募手続、意見の起草補助 + 提出)。既定 = 案内 + 起草補助 + 本人提出; 代行 (本人同意ベース) は gated R3 例外。organ / channel / 根拠法令 / 様式 / 期限 / 紹介議員-flag を コード化した participationTarget registry が駆動。同意・本人声限定 (G4)、公職選挙法/政治中立 (G3)、UPL 境界 (G5)、PII + 政治的意見 暗号化 (G6, APPI 要配慮)、Murakumo-only (G7)、捏造禁止 (G8)、非党派 + 非営利 (G9)、適法 channel のみ (G10)、Transparent Religious Force (G11)、データ最小化/意見プロファイル禁止 (G12)、検証済 target のみ (G14)、本人提出 default (G15)。日本先行 (R0); architecture は jurisdiction 汎用。7 cells / 6 Lexicons / 15 gates / 13 non-goals。",
+  "adr": {
+    "master": "etzhayyim:adr:2605312400",
+    "parent": "etzhayyim:adr:2605312030",
+    "r0": "etzhayyim:adr:2605312400",
+    "r1": "reserved",
+    "r2": "reserved",
+    "r3": "reserved"
+  },
+  "tier": "Tier-B",
+  "parentActor": null,
+  "posture": "SERVICE-DELIVERY to the citizen — the citizen's VOICE INTO the state (default = guide + draft-assist + member-self-submit; 代行 active-outbound is the narrowly-gated R3 exception). Strictly non-partisan / INFO-only on elections (G3).",
+  "crossActorBoundary": [
+    "did:web:chigiri.etzhayyim.com (BOUNDARY: chigiri = procedure/legal TEMPLATES + characterization + 作成代理 + appeal [UPL]; moushibumi = citizen intake + neutral info + drafting-assist + (gated) submit + status-track. moushibumi pulls templates from chigiri; renders no advice; ADR-2605262700)",
+    "did:web:danjo.etzhayyim.com (OPPOSITE posture: danjo WATCHES the state's output [Diet/budget/procurement]; moushibumi conveys the citizen's INPUT [請願/意見]. A petition's subject matter MAY cite danjo's published observations at the member's choice, but moushibumi never adjudicates; ADR-2605301600)",
+    "did:web:himotoki.etzhayyim.com (SIBLING active-outbound: himotoki files 開示請求 [data OUT]; moushibumi files 請願/意見 [voice IN]. Shared dispatch discipline (consent + own-only + transparent-non-pretext + lawful-channel-only + verified-target-only), disjoint purpose; ADR-2605302130)",
+    "did:web:toritsugi.etzhayyim.com (SIBLING: toritsugi = administrative procedures, moushibumi = democratic participation; same coded-registry + G15 self-submit pattern; ADR-2605312030)",
+    "com.etzhayyim.encrypted.* (member PII + political-opinion content land ONLY here — XChaCha20-Poly1305 DID-bound envelope; G6, ADR-2605181100; political belief is APPI §2 special-care)",
+    "kotoba QuadStore EAVT (target catalog + session/draft/submission lifecycle datoms; ADR-2605262130; no RisingWave / no projection layer)"
+  ],
+  "form": "任意団体 internal member-service substrate (NOT 一般社団 / NPO / 公益財団 / 宗教法人 法人格 — Preamble §0.4 Lv7+ unanimity lock; NOT a political party / PAC / campaign org — 公職選挙法 + non-partisan boundary G3/G9; NOT a 行政書士/弁護士 firm — UPL boundary G5)",
+  "constitutionalDiscipline": {
+    "electionNeutralityBoundary": "G3 (CRITICAL) — INFO + procedure ONLY. No campaigning / canvassing (公職選挙法 §138 戸別訪問) / candidate or party endorsement / ranking / scoring / vote solicitation / GOTV targeting / partisan steering. Election content is neutral reference to official sources only. Protects §1.12 / 1 SBT = 1 vote (the religious-corp never directs votes).",
+    "consentGatedOwnVoiceOnly": "G4 — every petition/comment is member-initiated with consent + Adherent-SBT/DID binding and is the member's OWN voice; never on behalf of a non-consenting person; never a third party's voice.",
+    "uplBoundary": "G5 — drafting-assist + 案内 only; renders NO legal advice; legal characterization + appeal route to chigiri + licensed counsel (Public Fund Council Lv6+).",
+    "piiAndOpinionConfidentiality": "G6 — member PII + political-opinion content (APPI §2 special-care) land ONLY in com.etzhayyim.encrypted.* DID-bound envelopes (ADR-2605181100); never plaintext on MST; explicit consent + minimum necessary.",
+    "murakumoOnlyInference": "G7 — Murakumo-only inference per ADR-2605215000; no vendor LLM API callout.",
+    "nonFabrication": "G8 — never invent 期限 / 様式 / 根拠法令 / 紹介議員 requirement; every target cites 根拠法令 + provenance; the member confirms before any submission.",
+    "nonPartisanNonCommercial": "G9 — non-profit; no paid lobbying / lobbying-for-hire; no resale of participation or member-opinion data; organisationally non-partisan (no party affiliation, donation, or PAC).",
+    "lawfulChannelOnly": "G10 — the only external mutation is a lawful submission through an official channel with member authorization.",
+    "transparentForce": "G11 — voice + submit + track ONLY; no coercion / extra-legal pressure; aggregate-first publication; 1 SBT = 1 vote governs internal aggregation (ADR-2605192100 §1.12).",
+    "scopeMinimization": "G12 — collect only what the participation act requires; no political profiling, no opinion-bank building.",
+    "stateAlignedFlagPassthrough": "G13 — stateAlignedFlag pass-through into derived records.",
+    "verifiedTargetOnlySubmission": "G14 — moushibumi_submit refuses any target whose verificationStatus is unverified-seed or whose lastVerified is stale; live filing requires maintainer-verified / council-verified.",
+    "memberSelfSubmissionDefault": "G15 — default is guide-the-member-to-submit; 代行 active-outbound (moushibumi_submit) is the GATED exception (R3), requiring per-submission consent + 行政書士法 clearance + Council Lv7+."
+  },
+  "scope": {
+    "phase": "R0 scaffold",
+    "scopeBoundary": "Citizen democratic-participation concierge across 3 channels — election INFO (no campaigning), 請願/陳情, パブリックコメント — driven by a coded participationTarget registry. 案内+起草補助+本人提出 is the floor; 代行 is the gated R3 ceiling. JP-first; jurisdiction-generic architecture.",
+    "exclusions": [
+      "political party / PAC / campaign org / candidate-support body",
+      "lobbying-for-hire firm",
+      "vote-direction / GOTV / get-out-the-vote-targeting machine",
+      "partisan endorser / candidate ranker",
+      "行政書士 / 弁護士 firm (drafting-assist only; advice → chigiri + licensed)",
+      "replacement for the member's own civic right (assists, does not supplant)",
+      "political-opinion-profiling / surveillance system",
+      "data-broker of participation or opinion data",
+      "pretext / impersonation tool",
+      "plaintext-PII / plaintext-political-belief store",
+      "mass-filing / assembly-flooding tool",
+      "Japan-exclusive architecture (jurisdiction-generic)",
+      "oversight / audit actor (that is danjo — opposite posture)"
+    ]
+  },
+  "codedTargetRegistry": {
+    "description": "Each democratic-participation target encoded as com.etzhayyim.moushibumi.participationTarget records (organ / channel / 根拠法令 / 様式 / 期限 / 紹介議員-flag) so a cell can route + (eventually) file procedurally. Seed at registry/targets.seed.json.",
+    "seedFile": "/20-actors/moushibumi/registry/targets.seed.json",
+    "seedTargets": ["国会請願 (衆/参)", "地方議会陳情 template", "国パブコメ (e-Gov)", "自治体パブコメ template", "選挙情報 INFO-ONLY"],
+    "verificationGate": "G14 — all seed entries ship verificationStatus=unverified-seed; NO live submission until maintainer-verified / council-verified (代行) within freshnessWindowDays."
+  },
+  "cells": [
+    {"name": "target_registry", "module": "kotodama.cells.moushibumi_target_registry", "murakumoNode": "reuben", "phase": "continuous", "io": "maintain + resolve the coded participationTarget catalog; enforce G14"},
+    {"name": "voter_info", "module": "kotodama.cells.moushibumi_voter_info", "murakumoNode": "reuben", "phase": "continuous", "io": "NEUTRAL election-mechanics info (dates / 期日前 / official 選挙公報 pointers); G3 no partisanship"},
+    {"name": "opportunity_match", "module": "kotodama.cells.moushibumi_opportunity_match", "murakumoNode": "reuben", "phase": "event", "io": "consenting member's interest/locale (OWN) → participationMatch (neutral, aggregate)"},
+    {"name": "intake", "module": "kotodama.cells.moushibumi_intake", "murakumoNode": "gad", "phase": "event", "io": "member consent + DID/SBT → participationSession"},
+    {"name": "compose", "module": "kotodama.cells.moushibumi_compose", "murakumoNode": "gad", "phase": "event", "io": "pull chigiri template + resolved target → voiceDraft (drafting-assist, G5)"},
+    {"name": "submit", "module": "kotodama.cells.moushibumi_submit", "murakumoNode": "naphtali", "phase": "event", "io": "THE ONLY active-outbound cell — default hands the draft back for member self-submission; 代行 ONLY under G14+G15+R3 → submissionRecord"},
+    {"name": "status_track", "module": "kotodama.cells.moushibumi_status_track", "murakumoNode": "naphtali", "phase": "continuous", "io": "petition/comment receipt + 議会 採択/不採択 + agency 考え方 公示 (行手法 §43) tracking"}
+  ],
+  "lexiconNamespaces": [
+    "com.etzhayyim.moushibumi.participationTarget",
+    "com.etzhayyim.moushibumi.participationMatch",
+    "com.etzhayyim.moushibumi.participationSession",
+    "com.etzhayyim.moushibumi.voiceDraft",
+    "com.etzhayyim.moushibumi.submissionRecord",
+    "com.etzhayyim.moushibumi.statusTrack"
+  ],
+  "constitutionalGates": {
+    "description": "15 immutable gates per ADR-2605312400 §4. Council Lv6+ supermajority + new ADR to amend.",
+    "gates": {
+      "G1": "Charter Rider §2(a)-(h) scan on every authored artifact + outbound action",
+      "G2": "kotoba attestation lineage on every record (EAVT; no RW)",
+      "G3": "公職選挙法 + political-neutrality boundary (CRITICAL) — INFO + procedure ONLY; no campaigning/canvassing/endorsement/ranking/vote-solicitation/GOTV/partisan-steering; neutral official-source reference only (protects §1.12 / 1 SBT = 1 vote)",
+      "G4": "Consent-gated + own-voice-only — member-initiated, consent + Adherent-SBT/DID bound; never a non-consenting person; never a third party's voice",
+      "G5": "行政書士法 / UPL-equivalent — drafting-assist + 案内; NO legal advice; characterization + appeals → chigiri + licensed counsel",
+      "G6": "PII + political-opinion confidentiality — member PII + political-opinion (APPI §2 special-care) ONLY in com.etzhayyim.encrypted.* DID-bound envelopes (ADR-2605181100); never plaintext; explicit consent + minimum",
+      "G7": "Murakumo-only inference (ADR-2605215000)",
+      "G8": "Non-fabrication — never invent 期限/様式/根拠法令/紹介議員 requirement; cite 根拠法令 + provenance; member confirms before submission",
+      "G9": "Non-partisan + non-commercial — non-profit; no paid lobbying; no resale of participation/opinion data; no party affiliation/donation/PAC",
+      "G10": "Lawful-channel-only — only external mutation is a lawful submission via an official channel with member authorization",
+      "G11": "Transparent Religious Force discipline (§1.12) — voice + submit + track only; no coercion; aggregate-first; 1 SBT = 1 vote",
+      "G12": "Scope / data-minimization — collect only what the participation act requires; no political profiling / opinion-bank",
+      "G13": "stateAlignedFlag pass-through into derived records",
+      "G14": "Verified-target-only submission — moushibumi_submit refuses unverified-seed / stale targets",
+      "G15": "Member-self-submission default — guide-the-member-to-submit is the default; 代行 active-outbound is the gated R3 exception (per-submission consent + 行政書士法 clearance + Council Lv7+)"
+    }
+  },
+  "nonGoals": {
+    "description": "13 explicitly excluded scopes",
+    "goals": {
+      "N1": "NOT a political party / PAC / campaign org / candidate-support body",
+      "N2": "NOT a lobbying-for-hire firm",
+      "N3": "NOT a vote-direction / GOTV / get-out-the-vote-targeting machine",
+      "N4": "NOT a partisan endorser or candidate ranker",
+      "N5": "NOT a 行政書士 / 弁護士 firm (drafting-assist only; advice → chigiri + licensed)",
+      "N6": "NOT a replacement for the member's own civic right (assists, does not supplant)",
+      "N7": "NOT a political-opinion-profiling / surveillance system",
+      "N8": "NOT a data-broker of participation or opinion data",
+      "N9": "NOT a pretext / impersonation tool",
+      "N10": "NOT a plaintext-PII / plaintext-political-belief store",
+      "N11": "NOT a mass-filing / assembly-flooding tool",
+      "N12": "NOT Japan-exclusive in architecture (JP-first at R0; jurisdiction-generic)",
+      "N13": "NOT an oversight / audit actor (that is danjo — opposite posture)"
+    }
+  },
+  "roadmap": [
+    {"phase": "R0", "date": "2026-05-31", "scope": "Scaffold only. 7 cells path-reserved. 6 Lexicon skeletons. Target-registry seed (5 entries, all unverified-seed). manifest + README + CLAUDE.md. NO submission, NO live guide.", "murakumoFleet": "No deployment", "gate": "ADR-2605312400 (PROPOSED)"},
+    {"phase": "R1", "date": "post-Bootstrap-Council + ≥1 Council Lv6+ ratify", "scope": "target_registry + voter_info + opportunity_match + intake + compose build artifacts; 案内 + 起草補助 only, no submission.", "murakumoFleet": "reuben", "gate": "Council Lv6+ ≥3"},
+    {"phase": "R2", "date": "post-R1 + 30-day public comment", "scope": "member SELF-SUBMITS petitions/comments; status_track live. No 代行.", "murakumoFleet": "reuben + gad", "gate": "Council Lv6+ ≥4 + 30-day public comment"},
+    {"phase": "R3", "date": "post-R2 + Council Lv7+ unanimity + 行政書士法 clearance", "scope": "moushibumi_submit active-outbound 代行 (本人同意ベース) for the member's own voice.", "murakumoFleet": "Full 10-node fleet", "gate": "Council Lv7+ unanimity + 行政書士法 clearance"}
+  ],
+  "references": {
+    "adr": {
+      "master": "/90-docs/adr/2605312400-moushibumi-democratic-participation-concierge-tier-b-actor-r0.md",
+      "toritsugiSibling": "/90-docs/adr/2605312030-toritsugi-government-procedure-concierge-tier-b-actor-r0.md",
+      "himotokiSibling": "/90-docs/adr/2605302130-himotoki-disclosure-request-tier-b-actor-r0.md",
+      "danjoCounterpart": "/90-docs/adr/2605301600-danjo-public-accountability-oversight-tier-b-actor-r0.md",
+      "chigiriCrossActor": "/90-docs/adr/2605262700-chigiri-legal-procedure-tier-b-actor-r0.md",
+      "confidentiality": "/90-docs/adr/2605181100-etzhayyim-confidentiality-encrypted-records.md",
+      "kotoba": "/90-docs/adr/2605262130-kotoba-storage-substrate-unification.md",
+      "missionCharter": "/90-docs/adr/2605192100-etzhayyim-mission-charter.md",
+      "transparentForce": "/90-docs/adr/2605192315-etzhayyim-transparent-force-authorization.md",
+      "charterRider": "/90-docs/adr/2605192200-etzhayyim-ip-free-release-charter-rider.md",
+      "council": "/90-docs/adr/2605192300-etzhayyim-bootstrap-council-five.md",
+      "murakumoInference": "/90-docs/adr/2605215000-etzhayyim-inference-murakumo-only-no-runpod.md"
+    },
+    "registrySeed": "/20-actors/moushibumi/registry/targets.seed.json"
+  }
+}
