@@ -1,0 +1,27 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.moushibumi.submissionRecord",
+  "description": "A record of a petition/comment submission (ADR-2605312400 §3, moushibumi_submit). Two `mode`s: `member-self-submit` (default, R2 — moushibumi assembled + handed back, the member filed) and `agent-on-behalf` (代行, R3 GATED — moushibumi filed the member's OWN voice via the official channel). CONSTITUTIONAL: `agent-on-behalf` is permitted ONLY when the target is `council-verified` (G14), per-submission consent is recorded, and the R3 gate (行政書士法 clearance + Council Lv7+) is satisfied (G15); only external mutation is a lawful submission via an official channel with member authorization (G10); member is the named 請願者/意見提出者 (G4); no platform-held signing key (ADR-2605231525). Holds submission metadata + pointers, never inline content (G6). NEVER applies to election-info (INFO-ONLY, G3).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["memberDid", "targetRef", "mode", "channel", "consentRef", "submittedAt"],
+        "properties": {
+          "memberDid": {"type": "string", "format": "did", "description": "The 請願者/意見提出者本人 (G4)"},
+          "targetRef": {"type": "string", "description": "AT-URI / rkey of the participationTarget"},
+          "draftRef": {"type": "string", "description": "AT-URI / rkey of the voiceDraft submitted"},
+          "mode": {"type": "string", "knownValues": ["member-self-submit", "agent-on-behalf"], "description": "G15 — member-self-submit is the default; agent-on-behalf (代行) is the GATED R3 exception"},
+          "channel": {"type": "string", "knownValues": ["web-portal", "postal", "in-person", "via-introducing-member"], "description": "The official channel used (G10)"},
+          "consentRef": {"type": "string", "description": "Per-submission consent artifact (G4; mandatory for agent-on-behalf, G15)"},
+          "councilGateRef": {"type": "string", "description": "For mode=agent-on-behalf: reference to the on-chain Council Lv7+ + 行政書士法 clearance gate (G15). Absent ⇒ agent-on-behalf is invalid."},
+          "receiptRef": {"type": "string", "description": "Pointer to the com.etzhayyim.encrypted.* envelope holding the submission receipt / 受付番号 (G6)"},
+          "submittedAt": {"type": "string", "format": "datetime"},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"}
+        }
+      }
+    }
+  }
+}

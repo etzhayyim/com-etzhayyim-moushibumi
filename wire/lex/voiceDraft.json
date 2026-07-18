@@ -1,0 +1,26 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.moushibumi.voiceDraft",
+  "description": "A drafted 請願書 / 陳情 / public-comment opinion artifact (ADR-2605312400 §3, moushibumi_compose). moushibumi ASSISTS the member in drafting; the member reviews + owns + (default) submits it. CONSTITUTIONAL: drafting-assistance, NOT 作成代理 reserved to 行政書士/弁護士 (G5; only representable assistMode is 'drafting-assist'); the member always confirms before submission (G8); the draft's content (which may include political opinion, APPI special-care) lives ONLY in an com.etzhayyim.encrypted.* DID-bound envelope (G6) — this record holds the POINTER + metadata, never inline content.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["memberDid", "targetRef", "sessionRef", "encryptedDraftRef", "memberConfirmed", "createdAt"],
+        "properties": {
+          "memberDid": {"type": "string", "format": "did", "description": "The member who owns the draft (申請者/請願者本人, G4)"},
+          "targetRef": {"type": "string", "description": "AT-URI / rkey of the participationTarget"},
+          "sessionRef": {"type": "string", "description": "AT-URI / rkey of the parent participationSession"},
+          "draftKind": {"type": "string", "knownValues": ["petition", "public-comment"], "description": "election-info has no draft (INFO-ONLY, G3)"},
+          "encryptedDraftRef": {"type": "string", "description": "Pointer to the com.etzhayyim.encrypted.* envelope holding the draft (G6); never inline content"},
+          "assistMode": {"type": "string", "knownValues": ["drafting-assist"], "description": "Always drafting-assist — never 作成代理 (G5). Schema-level invariant: no other value representable."},
+          "memberConfirmed": {"type": "boolean", "description": "G8 — the member has reviewed + confirmed the draft before it may be submitted"},
+          "createdAt": {"type": "string", "format": "datetime"},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"}
+        }
+      }
+    }
+  }
+}

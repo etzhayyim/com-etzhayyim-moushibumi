@@ -1,6 +1,6 @@
 # 申文 (moushibumi) — Citizen Democratic-Participation Concierge
 
-**Tier-B actor · DID `did:web:moushibumi.etzhayyim.com` · ADR-2605312400 · R0 scaffold**
+**Tier-B actor · DID `did:web:etzhayyim.com:actor:moushibumi` · ADR-2605312400 · R0**
 
 moushibumi is the citizen's **voice into** the state — the participation sibling
 of toritsugi (取次, government procedures) and the counterpart of danjo (弾正,
@@ -33,9 +33,9 @@ Each target is an `com.etzhayyim.moushibumi.participationTarget` record holding
 the **organ (議会 / 行政機関 / 選管) / channel / 根拠法令 / 提出様式 / 期限 /
 紹介議員-required flag** so a cell can route + (eventually) file procedurally.
 
-- Seed: [`registry/targets.seed.json`](registry/targets.seed.json) — 5 entries
-  (国会請願 衆/参 · 地方議会陳情 · 国パブコメ e-Gov · 自治体パブコメ · 選挙情報
-  総務省/選管), **all `unverified-seed`**.
+- Canonical seed: [`registry/targets.seed.edn`](registry/targets.seed.edn) — 60
+  entries across 38 jurisdictions, **all `unverified-seed`**. The JSON projection
+  is external wire data under `wire/registry/`.
 - **Honesty gate (G14):** no live submission against an `unverified-seed` /
   stale entry; seeds are routing scaffolds.
 
@@ -51,7 +51,8 @@ the **organ (議会 / 行政機関 / 選管) / channel / 根拠法令 / 提出�
 | `moushibumi_submit` | naphtali | event | **only outbound** — self-submit default; 代行 gated R3 → `submissionRecord` |
 | `moushibumi_status_track` | naphtali | continuous | receipt + 採択/考え方 outcome |
 
-All cells raise `RuntimeError("moushibumi R0 scaffold: …")` until Council ratification.
+Live submission remains unavailable until Council ratification; only deterministic
+planning, contract checks, and dry-run publication are available at R0.
 
 ## Constitutional gates (G1–G15, immutable)
 
@@ -87,6 +88,8 @@ gated 代行.
 
 ## References
 
-- ADR: [`/90-docs/adr/2605312400-moushibumi-democratic-participation-concierge-tier-b-actor-r0.md`](/90-docs/adr/2605312400-moushibumi-democratic-participation-concierge-tier-b-actor-r0.md)
-- Lexicons: [`/00-contracts/lexicons/com/etzhayyim/moushibumi/`](/00-contracts/lexicons/com/etzhayyim/moushibumi/)
-- Charter Rider: [`/CHARTER-RIDER.md`](/CHARTER-RIDER.md)
+- `manifest.edn`, `identity.edn`, `dependencies.edn` — canonical repository metadata
+- `lex/` — six canonical EDN lexicons
+- `registry/targets.seed.edn` — canonical worldwide target seed
+- `wire/` and `.well-known/did.json` — external protocol projections
+- Root ADRs and sibling actor revisions are pinned in `dependencies.edn`

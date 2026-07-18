@@ -1,0 +1,24 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.moushibumi.statusTrack",
+  "description": "Tracks a submitted petition/comment's outcome (ADR-2605312400 §3, moushibumi_status_track): 議会 受理 → 採択/不採択, or agency 公示 of 提出意見を考慮した結果及びその理由 (行政手続法 §43). CONSTITUTIONAL: track only, no coercion (G11); any member-identifying outcome detail lands ONLY in an com.etzhayyim.encrypted.* DID-bound envelope (G6) — this record holds status metadata + pointers, never inline content. Outcome publication is aggregate-first + 1 SBT = 1 vote for named matters (G11).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["memberDid", "submissionRef", "state", "updatedAt"],
+        "properties": {
+          "memberDid": {"type": "string", "format": "did", "description": "The 請願者/意見提出者本人 (G4)"},
+          "submissionRef": {"type": "string", "description": "AT-URI / rkey of the submissionRecord being tracked"},
+          "state": {"type": "string", "knownValues": ["submitted", "received", "under-deliberation", "adopted", "not-adopted", "agency-response-published", "withdrawn"], "description": "Petition 採択/不採択 or agency §43 response state"},
+          "outcomeRef": {"type": "string", "description": "Pointer to the com.etzhayyim.encrypted.* envelope holding outcome detail (G6); never inline"},
+          "publicOutcomeUri": {"type": "string", "format": "uri", "description": "Optional public URL of the agency's §43 考え方 公示 / 議会 議決 (non-PII public record)"},
+          "updatedAt": {"type": "string", "format": "datetime"},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"}
+        }
+      }
+    }
+  }
+}

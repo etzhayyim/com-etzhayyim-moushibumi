@@ -66,8 +66,8 @@
     ]
   },
   "codedTargetRegistry": {
-    "description": "Each democratic-participation target encoded as com.etzhayyim.moushibumi.participationTarget records (organ / channel / 根拠法令 / 様式 / 期限 / 紹介議員-flag) so a cell can route + (eventually) file procedurally. Seed at registry/targets.seed.json.",
-    "seedFile": "/20-actors/moushibumi/registry/targets.seed.json",
+    "description": "Each democratic-participation target encoded as com.etzhayyim.moushibumi.participationTarget records (organ / channel / 根拠法令 / 様式 / 期限 / 紹介議員-flag) so a cell can route + (eventually) file procedurally. Canonical seed is registry/targets.seed.edn; JSON projection is wire/registry/targets.seed.json.",
+    "seedFile": "wire/registry/targets.seed.json",
     "seedTargets": ["国会請願 (衆/参)", "地方議会陳情 template", "国パブコメ (e-Gov)", "自治体パブコメ template", "選挙情報 INFO-ONLY"],
     "verificationGate": "G14 — all seed entries ship verificationStatus=unverified-seed; NO live submission until maintainer-verified / council-verified (代行) within freshnessWindowDays."
   },
@@ -147,6 +147,6 @@
       "council": "/90-docs/adr/2605192300-etzhayyim-bootstrap-council-five.md",
       "murakumoInference": "/90-docs/adr/2605215000-etzhayyim-inference-murakumo-only-no-runpod.md"
     },
-    "registrySeed": "/20-actors/moushibumi/registry/targets.seed.json"
+    "registrySeed": "wire/registry/targets.seed.json"
   }
 }

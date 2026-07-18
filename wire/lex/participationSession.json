@@ -1,0 +1,36 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.moushibumi.participationSession",
+  "description": "A member-facing 案内/伴走 session for a single participation act (ADR-2605312400 §3, moushibumi_intake + moushibumi_compose). Holds the step-by-step walkthrough + 必要事項 checklist pulled from a chigiri template (G5 — drafting-assist, never legal advice). CONSTITUTIONAL: member-initiated + consent + DID/SBT bound, OWN voice only (G4); cites the target's legalBasis (G8). Holds session metadata + checklist state, not plaintext member PII or political-opinion (G6).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["memberDid", "targetRef", "status", "createdAt"],
+        "properties": {
+          "memberDid": {"type": "string", "format": "did", "description": "The consenting member's DID (G4)"},
+          "targetRef": {"type": "string", "description": "AT-URI / rkey of the participationTarget being acted on"},
+          "templateRef": {"type": "string", "maxLength": 120, "description": "chigiri template id this guide renders (G5 boundary)"},
+          "status": {"type": "string", "knownValues": ["open", "drafting", "ready-to-submit", "submitted", "closed", "abandoned"]},
+          "checklist": {"type": "array", "description": "必要事項 / step checklist state", "items": {"type": "ref", "ref": "#checklistEntry"}},
+          "consentRef": {"type": "string", "description": "Reference to the member's recorded consent (G4)"},
+          "createdAt": {"type": "string", "format": "datetime"},
+          "updatedAt": {"type": "string", "format": "datetime"},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"}
+        }
+      }
+    },
+    "checklistEntry": {
+      "type": "object",
+      "description": "One step/必要事項 in a participationSession",
+      "required": ["label", "done"],
+      "properties": {
+        "label": {"type": "string", "maxLength": 300},
+        "done": {"type": "boolean"},
+        "note": {"type": "string", "maxLength": 500}
+      }
+    }
+  }
+}

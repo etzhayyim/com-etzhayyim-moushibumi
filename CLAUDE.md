@@ -1,7 +1,7 @@
 # moushibumi (申文) — CLAUDE actor guide
 
 **Citizen democratic-participation concierge.** Tier-B ·
-`did:web:moushibumi.etzhayyim.com` · ADR-2605312400 ·
+`did:web:etzhayyim.com:actor:moushibumi` · ADR-2605312400 ·
 **R0 scaffold (no cells run, no submission)**.
 
 ## What this actor IS
@@ -18,7 +18,8 @@ consent-bound:
 
 Default = 案内 + 起草補助 + 本人提出; 代行 (本人同意ベース) is the gated R3
 exception. Driven by a coded `participationTarget` registry (organ / channel /
-根拠法令 / 様式 / 期限 / 紹介議員-flag). Seed: `registry/targets.seed.json`.
+根拠法令 / 様式 / 期限 / 紹介議員-flag). Canonical seed:
+`registry/targets.seed.edn`; JSON exists only under `wire/registry/`.
 
 ## Do NOT (constitutional invariants — ADR-2605312400 §4)
 

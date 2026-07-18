@@ -1,0 +1,44 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.moushibumi.participationTarget",
+  "description": "Coded democratic-participation TARGET registry entry — one record per organ × channel-kind, holding the organ (議会 / 行政機関 / 選管) / channel / 根拠法令 / 提出様式 / 期限 / 紹介議員-required flag so a moushibumi cell can route + (eventually) file procedurally (ADR-2605312400 §2). OPEN DATA (derived from the organ's published guidance; provenance mandatory). CONSTITUTIONAL: `verificationStatus` gates live submission (G14); `channelKind=election-info` entries are INFO-ONLY (G3 — neutral reference to official sources, no campaigning/endorsement/GOTV; no submission channel). Never fabricate (G8): `legalBasis` + `provenance` mandatory.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": [
+          "targetId",
+          "title",
+          "jurisdiction",
+          "channelKind",
+          "organ",
+          "legalBasis",
+          "provenance",
+          "lastVerified",
+          "verificationStatus"
+        ],
+        "properties": {
+          "targetId": {"type": "string", "maxLength": 120, "description": "Stable slug (e.g. 'jp-kokkai-seigan')"},
+          "title": {"type": "string", "maxLength": 200},
+          "jurisdiction": {"type": "string", "maxLength": 8, "description": "e.g. jpn"},
+          "channelKind": {"type": "string", "knownValues": ["petition", "public-comment", "election-info"], "description": "election-info is INFO-ONLY (G3); no submission"},
+          "organ": {"type": "string", "maxLength": 300, "description": "The 議会 / 行政機関 / 選管 responsible"},
+          "channelType": {"type": "string", "knownValues": ["web-portal", "postal-or-in-person", "via-introducing-member", "web-portal-or-postal", "info-only"], "description": "HOW the voice is filed (or info-only)"},
+          "introducingMemberRequired": {"type": "boolean", "description": "請願 to the Diet requires a 紹介議員 (国会法 §79); moushibumi notes the requirement, never arranges/lobbies one (G9)"},
+          "portalUrl": {"type": "string", "format": "uri"},
+          "submissionForm": {"type": "string", "maxLength": 500, "description": "提出様式 description (or info-only note)"},
+          "deadline": {"type": "string", "maxLength": 300, "description": "Comment window / 会期 / 締切 description"},
+          "legalBasis": {"type": "string", "maxLength": 300, "description": "根拠法令 — MANDATORY (G8), e.g. '請願法; 国会法 §79' / '行政手続法 §39'"},
+          "language": {"type": "string", "maxLength": 16},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"},
+          "provenance": {"type": "string", "format": "uri", "description": "Source URL (the organ's published guidance) — MANDATORY (G8)"},
+          "lastVerified": {"type": "string", "format": "datetime"},
+          "verificationStatus": {"type": "string", "knownValues": ["unverified-seed", "maintainer-verified", "council-verified"], "description": "G14 submission gate. unverified-seed => routing/info-design only, NO live submission."},
+          "notes": {"type": "string", "maxLength": 1500}
+        }
+      }
+    }
+  }
+}

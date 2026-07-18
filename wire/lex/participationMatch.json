@@ -1,0 +1,24 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.moushibumi.participationMatch",
+  "description": "A PROACTIVE, POLITICALLY-NEUTRAL open-opportunity match raised for a CONSENTING member — 'a public-comment window / petition route is open that concerns a topic you follow' (ADR-2605312400 §3, moushibumi_opportunity_match). CONSTITUTIONAL: derived ONLY from the member's OWN declared interest/locale with consent (G4); NEVER partisan, NEVER a candidate/party recommendation or vote prompt (G3); data-minimised, no opinion-profiling (G12); cites the target it points to. Holds match metadata + a pointer, never plaintext member PII or political-opinion content (G6).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["memberDid", "targetRef", "rationale", "consentRef", "createdAt"],
+        "properties": {
+          "memberDid": {"type": "string", "format": "did", "description": "The consenting member's DID (G4)"},
+          "targetRef": {"type": "string", "description": "AT-URI / rkey of the participationTarget this match points to"},
+          "rationale": {"type": "string", "maxLength": 1000, "description": "Why this is relevant (cites the member's declared interest/locale; NEUTRAL, no partisan framing, G3)"},
+          "channelKind": {"type": "string", "knownValues": ["petition", "public-comment", "election-info"]},
+          "consentRef": {"type": "string", "description": "Reference to the member's recorded consent to be matched (G4)"},
+          "createdAt": {"type": "string", "format": "datetime"},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"}
+        }
+      }
+    }
+  }
+}

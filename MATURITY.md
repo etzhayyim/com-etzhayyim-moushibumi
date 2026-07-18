@@ -15,7 +15,7 @@ honest framing: できていないことは「未」と明記する。
 | # | 項目 | 状態 | 完了イテレーション |
 |---|---|---|---|
 | 1 | ADR-2605312400 (master) | ✅ | init |
-| 2 | manifest.jsonld + README + CLAUDE.md | ✅ | init |
+| 2 | canonical `manifest.edn` + README + CLAUDE.md | ✅ | multirepo migration |
 | 3 | participationTarget registry seed (JP 5件, unverified-seed) | ✅ | init |
 | 4 | **registry の worldwide(多管轄)横展開** | ✅ | **iter-worldwide (2026-06-02)** |
 | 5 | cell scaffold (`kotodama.cells.moushibumi_*`, import時 RuntimeError) | 未 | — |

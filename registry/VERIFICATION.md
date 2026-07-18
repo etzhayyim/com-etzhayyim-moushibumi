@@ -8,7 +8,7 @@ entry is moved through the three tiers — the human/Council checks that gate
 `moushibumi_submit`.
 
 > **R0 status**: this is the *process spec*. **No entry is verified yet**; all
-> entries in `targets.seed.json` remain `unverified-seed`. Verification execution
+> entries in canonical `targets.seed.edn` remain `unverified-seed`. Verification execution
 > begins at **R1** (Council ratification + participation-verification maintainer
 > DID registered — see `moushibumi_*` cell scaffolds). At R0 no cell runs and
 > nothing is submitted or dispatched anywhere.
@@ -27,7 +27,7 @@ authority domain for each entry, never a global default.
 | `maintainer-verified` | a maintainer has re-checked all fields against the official authority source within the freshness window | participation-verification maintainer DID | **member self-submission** guidance (R2) of 請願 / 陳情 / パブリックコメント / 意見 |
 | `council-verified` | Council-reviewed; eligible for the gated 代行 path | Council Lv6+ (per G15 the 代行 path additionally needs Council Lv7+ unanimity + 行政書士法/UPL clearance) | **agent-on-behalf (代行) `moushibumi_submit`** eligibility (R3) |
 
-`freshnessWindowDays` (currently **180**, top-level in `targets.seed.json`)
+`freshnessWindowDays` (currently **180**, top-level in `targets.seed.edn`)
 bounds staleness: an entry whose `lastVerified` is older than the window is
 treated as unverified for dispatch **even if** its status is
 `maintainer-verified`. A stale entry must be re-run through the per-field
