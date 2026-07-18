@@ -53,6 +53,19 @@ the **organ (議会 / 行政機関 / 選管) / channel / 根拠法令 / 提出�
 
 All cells raise `RuntimeError("moushibumi R0 scaffold: …")` until Council ratification.
 
+## Migration Boundary
+
+`kotoba-lang/kotodama-cells/moushibumi_*` is legacy source
+during migration. The domain actor implementation belongs here as pure `.cljc`
+plans under `src/moushibumi/murakumo.cljc`: the seven participation cells map to
+`participationTarget`, `participationMatch`, `participationSession`,
+`voiceDraft`, `submissionRecord`, and `statusTrack` MST records; election-info
+remains read-side only and emits no write effect. The boundary is fail-closed:
+missing political-neutrality, consent, own-voice, UPL, encrypted PII/opinion,
+verified-target, Murakumo-only, member-self-submission, and R3 代行 attestations
+produce no write effects. Host placement remains in `kotoba-lang/murakumo`; any
+AT Protocol/PDS surface remains in `gftdcojp/app-aozora`.
+
 ## Constitutional gates (G1–G15, immutable)
 
 G3 **公職選挙法 + political-neutrality** (INFO+procedure only; no campaigning/
