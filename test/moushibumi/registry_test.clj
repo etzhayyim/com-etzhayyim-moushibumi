@@ -1,6 +1,6 @@
 (ns moushibumi.registry-test
   (:require [clojure.edn :as edn]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is]]))
 
 (def registry (edn/read-string (slurp "registry/targets.seed.edn")))
@@ -35,7 +35,7 @@
   (let [notes (map #(get % "notes" "") targets)]
     (is (some #(str/includes? % "公選法") notes))
     (is (<= 5 (count (filter #(or (str/includes? % "公選法")
-                                  (str/includes? (str/lower-case %) "political-neutrality"))
+                                  (str/includes? (str/lower %) "political-neutrality"))
                             notes))))))
 
 (deftest freshness-window-is-positive-integer
